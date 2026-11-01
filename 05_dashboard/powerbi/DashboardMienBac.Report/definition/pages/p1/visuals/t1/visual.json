@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "t1",
+  "position": {
+    "x": 20,
+    "y": 150,
+    "z": 0,
+    "height": 250,
+    "width": 760,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_branch"
+                    }
+                  },
+                  "Property": "branch_name"
+                }
+              },
+              "queryRef": "dim_branch.branch_name",
+              "nativeQueryRef": "branch_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_branch"
+                    }
+                  },
+                  "Property": "province"
+                }
+              },
+              "queryRef": "dim_branch.province",
+              "nativeQueryRef": "province"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_branch"
+                    }
+                  },
+                  "Property": "economic_profile"
+                }
+              },
+              "queryRef": "dim_branch.economic_profile",
+              "nativeQueryRef": "economic_profile"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "Tỷ lệ HT dư nợ"
+                }
+              },
+              "queryRef": "fact_performance.Tỷ lệ HT dư nợ",
+              "nativeQueryRef": "Tỷ lệ HT dư nợ"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "Tỷ lệ HT doanh thu"
+                }
+              },
+              "queryRef": "fact_performance.Tỷ lệ HT doanh thu",
+              "nativeQueryRef": "Tỷ lệ HT doanh thu"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "Chênh lệch doanh thu"
+                }
+              },
+              "queryRef": "fact_performance.Chênh lệch doanh thu",
+              "nativeQueryRef": "Chênh lệch doanh thu"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_incentive"
+                    }
+                  },
+                  "Property": "Điểm KPI trung bình"
+                }
+              },
+              "queryRef": "fact_incentive.Điểm KPI trung bình",
+              "nativeQueryRef": "Điểm KPI trung bình"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

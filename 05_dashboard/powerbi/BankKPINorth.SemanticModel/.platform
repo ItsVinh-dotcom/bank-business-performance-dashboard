@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DashboardMienBac"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ab460755-afb7-454a-a345-f6480eb7c354"
+  }
+}

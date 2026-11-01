@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "c5",
+  "position": {
+    "x": 1060,
+    "y": 20,
+    "z": 0,
+    "height": 110,
+    "width": 200,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_policy_check"
+                    }
+                  },
+                  "Property": "Số tháng vi phạm hạn mức không TSBĐ"
+                }
+              },
+              "queryRef": "fact_policy_check.Số tháng vi phạm hạn mức không TSBĐ",
+              "nativeQueryRef": "Số tháng vi phạm hạn mức không TSBĐ"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

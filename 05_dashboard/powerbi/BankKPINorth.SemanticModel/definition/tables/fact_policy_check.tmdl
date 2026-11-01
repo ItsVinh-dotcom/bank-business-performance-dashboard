@@ -1,0 +1,64 @@
+table fact_policy_check
+	lineageTag: 87cf7b67-645b-401f-a1bd-d6e57cc5846f
+
+	measure 'Số tháng vi phạm hạn mức không TSBĐ' = SUMX(fact_policy_check, IF(fact_policy_check[unsecured_loan_ratio] > fact_policy_check[unsecured_loan_limit], 1, 0))
+		formatString: #,0
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: c5be60fe-c1a9-4beb-8630-c2bc8ea55fbf
+
+	/// Tỷ lệ cho vay không tài sản bảo đảm trung bình, hạn mức 30%.
+	measure 'Tỷ lệ không TSBĐ trung bình' = AVERAGE(fact_policy_check[unsecured_loan_ratio])
+		formatString: 0.0%
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: 153ee136-d99e-4830-8149-c41a1b099a47
+
+	column month
+		dataType: string
+		lineageTag: 5c1dc9fa-f028-4b71-8599-9bd7aad4cfd6
+		summarizeBy: none
+		sourceColumn: month
+
+	column branch_id
+		dataType: string
+		lineageTag: f633179e-69cb-4dd6-b881-b00d4adf31d4
+		summarizeBy: none
+		sourceColumn: branch_id
+
+	column unsecured_loan_ratio
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ba4f2045-fa5c-43f2-8ba7-a935991fe3bd
+		summarizeBy: none
+		sourceColumn: unsecured_loan_ratio
+
+	column unsecured_loan_limit
+		dataType: double
+		formatString: 0%
+		lineageTag: 1069c458-cd41-4f94-a325-e82a137c885c
+		summarizeBy: none
+		sourceColumn: unsecured_loan_limit
+
+	column commission_ratio
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 5632f2be-1441-4832-8baf-718cbd109574
+		summarizeBy: none
+		sourceColumn: commission_ratio
+
+	column commission_cap
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 88635ef7-4f05-4e71-ab30-46c8f1284dbe
+		summarizeBy: none
+		sourceColumn: commission_cap
+
+	partition fact_policy_check = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\fact_policy_check.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"branch_id", type text}, {"unsecured_loan_ratio", type number}, {"unsecured_loan_limit", type number}, {"commission_ratio", type number}, {"commission_cap", type number}})
+				in
+				    Typed
+

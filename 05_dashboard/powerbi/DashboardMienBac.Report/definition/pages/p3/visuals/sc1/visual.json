@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "sc1",
+  "position": {
+    "x": 660,
+    "y": 340,
+    "z": 0,
+    "height": 350,
+    "width": 600,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Details": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_branch"
+                    }
+                  },
+                  "Property": "branch_name"
+                }
+              },
+              "queryRef": "dim_branch.branch_name",
+              "nativeQueryRef": "branch_name"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "Tỷ lệ HT doanh thu"
+                }
+              },
+              "queryRef": "fact_performance.Tỷ lệ HT doanh thu",
+              "nativeQueryRef": "Tỷ lệ HT doanh thu",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_incentive"
+                    }
+                  },
+                  "Property": "Điểm KPI trung bình"
+                }
+              },
+              "queryRef": "fact_incentive.Điểm KPI trung bình",
+              "nativeQueryRef": "Điểm KPI trung bình"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,38 @@
+table dim_product
+	lineageTag: b8fd0238-215f-46e9-bf1b-9583e60d86a0
+
+	column product_id
+		dataType: string
+		lineageTag: 9cbc9a68-a178-401b-84f9-a6017cddd211
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column product_name
+		dataType: string
+		lineageTag: 00460e86-a6f3-4ac7-8fc2-c9cbdca9f295
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column product_group
+		dataType: string
+		lineageTag: d7c6de5d-3230-4abe-8943-fb1d26e68128
+		summarizeBy: none
+		sourceColumn: product_group
+
+	column net_yield_annual
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 0038948c-6a91-4e5d-aaec-3c4834686fd0
+		summarizeBy: none
+		sourceColumn: net_yield_annual
+
+	partition dim_product = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\dim_product.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"product_name", type text}, {"product_group", type text}, {"net_yield_annual", type number}})
+				in
+				    Typed
+

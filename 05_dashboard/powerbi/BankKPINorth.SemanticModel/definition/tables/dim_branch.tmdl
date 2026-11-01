@@ -1,0 +1,37 @@
+table dim_branch
+	lineageTag: 9db2be91-e4a9-414f-9762-128451feb8ed
+
+	column branch_id
+		dataType: string
+		lineageTag: 97af87a4-759e-4952-a6a4-80a0ab47abf7
+		summarizeBy: none
+		sourceColumn: branch_id
+
+	column branch_name
+		dataType: string
+		lineageTag: e54fd038-ede8-4f88-a591-acf8baccbb49
+		summarizeBy: none
+		sourceColumn: branch_name
+
+	column province
+		dataType: string
+		lineageTag: 0c448151-3e5d-417d-ad1e-11a5258e11f4
+		summarizeBy: none
+		sourceColumn: province
+
+	column economic_profile
+		dataType: string
+		lineageTag: 81ea2f3f-ca60-49b9-b935-54587f3e5fa0
+		summarizeBy: none
+		sourceColumn: economic_profile
+
+	partition dim_branch = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\dim_branch.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"branch_id", type text}, {"branch_name", type text}, {"province", type text}, {"economic_profile", type text}})
+				in
+				    Typed
+

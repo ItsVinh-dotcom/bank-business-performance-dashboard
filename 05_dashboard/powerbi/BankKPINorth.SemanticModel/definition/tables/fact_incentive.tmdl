@@ -1,0 +1,75 @@
+table fact_incentive
+	lineageTag: 16f1a480-9282-4b8f-85a9-93a76536e7de
+
+	measure 'Điểm KPI trung bình' = AVERAGE(fact_incentive[kpi_score])
+		formatString: 0.0
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: 7ee0586c-1bf9-43ea-b3bf-6ed9160c121a
+
+	measure 'Tỷ lệ tháng đạt KPI' = DIVIDE(COUNTROWS(FILTER(fact_incentive, fact_incentive[kpi_score] >= 100)), COUNTROWS(fact_incentive))
+		formatString: 0.0%
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: c2dc06dc-9bef-42e4-bc45-51ce98c0ad4c
+
+	/// Triệu VND. Công thức minh họa.
+	measure 'Quỹ incentive' = SUM(fact_incentive[incentive_pool_mn])
+		formatString: #,0.0
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: 09bd2955-b117-4ead-8652-8b3d9f95d9e7
+
+	/// Quỹ nếu chi nhánh không vi phạm hạn mức trong tháng. Đề xuất, không phải cơ chế hiện hành.
+	measure 'Quỹ có điều kiện tuân thủ' = SUMX(fact_incentive, VAR b = fact_incentive[branch_id] VAR m = fact_incentive[month] VAR vi_pham = COUNTROWS(FILTER(fact_policy_check, fact_policy_check[branch_id] = b && fact_policy_check[month] = m && fact_policy_check[unsecured_loan_ratio] > fact_policy_check[unsecured_loan_limit])) RETURN IF(vi_pham > 0, 0, fact_incentive[incentive_pool_mn]))
+		formatString: #,0.0
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: db462bfe-d5c3-4ca5-9d1f-6f47d0983d2a
+
+	column month
+		dataType: string
+		lineageTag: 26be7952-019c-4517-ad9c-53378f57740f
+		summarizeBy: none
+		sourceColumn: month
+
+	column branch_id
+		dataType: string
+		lineageTag: 2cc830e6-dc17-4476-acec-7ac393f3589f
+		summarizeBy: none
+		sourceColumn: branch_id
+
+	column balance_achievement
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 398d79c5-c6ed-4dcf-8afd-f54b4b4d7db7
+		summarizeBy: none
+		sourceColumn: balance_achievement
+
+	column revenue_achievement
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 8055a9a2-b1a7-4a36-8ccc-bdb4decd10c7
+		summarizeBy: none
+		sourceColumn: revenue_achievement
+
+	column kpi_score
+		dataType: double
+		formatString: 0.00
+		lineageTag: 61b72206-a9fe-4777-baca-d4b2b33a9abd
+		summarizeBy: none
+		sourceColumn: kpi_score
+
+	column incentive_pool_mn
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 59571478-45e0-4cb0-9325-4d48b09463d9
+		summarizeBy: sum
+		sourceColumn: incentive_pool_mn
+
+	partition fact_incentive = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\fact_incentive.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"branch_id", type text}, {"balance_achievement", type number}, {"revenue_achievement", type number}, {"kpi_score", type number}, {"incentive_pool_mn", type number}})
+				in
+				    Typed
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "DashboardMienBac"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8b9288ac-fc9d-496d-b020-76f3c015ef31"
+  }
+}

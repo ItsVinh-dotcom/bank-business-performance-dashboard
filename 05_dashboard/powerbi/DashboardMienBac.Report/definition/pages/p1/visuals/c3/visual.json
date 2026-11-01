@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "c3",
+  "position": {
+    "x": 540,
+    "y": 20,
+    "z": 0,
+    "height": 110,
+    "width": 240,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_incentive"
+                    }
+                  },
+                  "Property": "Điểm KPI trung bình"
+                }
+              },
+              "queryRef": "fact_incentive.Điểm KPI trung bình",
+              "nativeQueryRef": "Điểm KPI trung bình"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

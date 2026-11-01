@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "t4",
+  "position": {
+    "x": 20,
+    "y": 170,
+    "z": 0,
+    "height": 500,
+    "width": 1240,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "month"
+                }
+              },
+              "queryRef": "fact_performance.month",
+              "nativeQueryRef": "month"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "branch_id"
+                }
+              },
+              "queryRef": "fact_performance.branch_id",
+              "nativeQueryRef": "branch_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "segment_id"
+                }
+              },
+              "queryRef": "fact_performance.segment_id",
+              "nativeQueryRef": "segment_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "product_id"
+                }
+              },
+              "queryRef": "fact_performance.product_id",
+              "nativeQueryRef": "product_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "actual_revenue_mn"
+                }
+              },
+              "queryRef": "fact_performance.actual_revenue_mn",
+              "nativeQueryRef": "actual_revenue_mn"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
