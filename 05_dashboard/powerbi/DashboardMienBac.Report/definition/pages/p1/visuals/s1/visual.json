@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "s1",
   "position": {
-    "x": 800,
-    "y": 150,
+    "x": 20,
+    "y": 145,
     "z": 0,
-    "height": 90,
-    "width": 460,
+    "height": 60,
+    "width": 180,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "dim_month"
                     }
                   },
-                  "Property": "quarter"
+                  "Property": "year"
                 }
               },
-              "queryRef": "dim_month.quarter",
-              "nativeQueryRef": "quarter",
+              "queryRef": "dim_month.year",
+              "nativeQueryRef": "year",
               "active": true
             }
           ]

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "c4",
   "position": {
-    "x": 800,
+    "x": 770,
     "y": 20,
     "z": 0,
-    "height": 110,
-    "width": 240,
+    "height": 100,
+    "width": 232,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "fact_incentive"
                     }
                   },
-                  "Property": "Quỹ incentive"
+                  "Property": "Doanh thu YTD"
                 }
               },
-              "queryRef": "fact_incentive.Quỹ incentive",
-              "nativeQueryRef": "Quỹ incentive"
+              "queryRef": "fact_performance.Doanh thu YTD",
+              "nativeQueryRef": "Doanh thu YTD"
             }
           ]
         }

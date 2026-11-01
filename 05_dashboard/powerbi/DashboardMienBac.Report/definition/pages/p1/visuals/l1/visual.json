@@ -3,10 +3,10 @@
   "name": "l1",
   "position": {
     "x": 20,
-    "y": 420,
+    "y": 225,
     "z": 0,
-    "height": 280,
-    "width": 1240,
+    "height": 250,
+    "width": 610,
     "tabOrder": 0
   },
   "visual": {
@@ -32,24 +32,6 @@
             }
           ]
         },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_branch"
-                    }
-                  },
-                  "Property": "branch_name"
-                }
-              },
-              "queryRef": "dim_branch.branch_name",
-              "nativeQueryRef": "branch_name"
-            }
-          ]
-        },
         "Y": {
           "projections": [
             {
@@ -60,15 +42,51 @@
                       "Entity": "fact_performance"
                     }
                   },
-                  "Property": "Tỷ lệ HT dư nợ"
+                  "Property": "Dư nợ thực tế"
                 }
               },
-              "queryRef": "fact_performance.Tỷ lệ HT dư nợ",
-              "nativeQueryRef": "Tỷ lệ HT dư nợ"
+              "queryRef": "fact_performance.Dư nợ thực tế",
+              "nativeQueryRef": "Dư nợ thực tế"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "Dư nợ kế hoạch"
+                }
+              },
+              "queryRef": "fact_performance.Dư nợ kế hoạch",
+              "nativeQueryRef": "Dư nợ kế hoạch"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dư nợ: kế hoạch và thực tế theo tháng'"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

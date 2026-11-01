@@ -30,7 +30,7 @@ table dim_product
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\dim_product.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Source = Csv.Document(File.Contents("D:\Documents\03_career\Projects\bank-business-performance-dashboard\02_data\north_provinces\dim_product.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"product_name", type text}, {"product_group", type text}, {"net_yield_annual", type number}})
 				in

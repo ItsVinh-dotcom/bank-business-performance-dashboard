@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "c5",
   "position": {
-    "x": 1060,
+    "x": 1020,
     "y": 20,
     "z": 0,
-    "height": 110,
-    "width": 200,
+    "height": 100,
+    "width": 232,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "fact_policy_check"
                     }
                   },
-                  "Property": "Số tháng vi phạm hạn mức không TSBĐ"
+                  "Property": "Doanh thu tăng YTD YoY"
                 }
               },
-              "queryRef": "fact_policy_check.Số tháng vi phạm hạn mức không TSBĐ",
-              "nativeQueryRef": "Số tháng vi phạm hạn mức không TSBĐ"
+              "queryRef": "fact_performance.Doanh thu tăng YTD YoY",
+              "nativeQueryRef": "Doanh thu tăng YTD YoY"
             }
           ]
         }

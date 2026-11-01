@@ -2,12 +2,13 @@
 
 Semantic model: `BankKPINorth` (thư mục `05_dashboard\powerbi\BankKPINorth.SemanticModel`). Dữ liệu: `02_data\north_provinces`, 4 chi nhánh, tháng 1/2025 đến tháng 6/2026. Toàn bộ là dữ liệu mô phỏng.
 
-## Cách bắt đầu
+## Cách mở và phạm vi dữ liệu
 
-1. Mở Power BI Desktop, tạo báo cáo trống, lưu thành `dashboard_mien_bac.pbix` trong `05_dashboard\powerbi`.
-2. Get Data > Text/CSV, nạp lần lượt 7 file: fact_performance, fact_policy_check, fact_incentive (từ `02_data\north_provinces`), và dim_branch, dim_segment, dim_product, dim_month (cùng thư mục). Hoặc, nếu Power BI Desktop của bạn mở được thư mục TMDL, mở `BankKPINorth.SemanticModel` trực tiếp.
-3. Kiểm tra Model view: có 8 quan hệ, tất cả là many-to-one, lọc một chiều từ dim sang fact.
-4. Nạp measure từ thư mục hiển thị "1. Kế hoạch vs thực tế", "2. Chính sách và incentive", "4. Chất lượng dữ liệu".
+Mở `DashboardMienBac.pbip` trong Power BI Desktop. Báo cáo dùng model TMDL `BankKPINorth` và 7 CSV trong `02_data/north_provinces`. Mô hình có 8 quan hệ dạng sao, lọc một chiều từ dimension sang fact.
+
+Dữ liệu mô phỏng theo tháng, từ 01/2025 đến 06/2026, gồm 4 chi nhánh, phân khúc và sản phẩm. Vì chưa có dữ liệu ngày, đường xu hướng biểu diễn theo tháng; không diễn giải thành biến động ngày/ngày.
+
+Các truy vấn Power Query hiện trỏ tới thư mục dữ liệu trong workspace này. Khi chuyển project sang máy hoặc thư mục khác, cập nhật đường dẫn `File.Contents` trong các partition trước khi refresh.
 
 ## Measure có sẵn
 
@@ -17,15 +18,13 @@ Chính sách và incentive: Số tháng vi phạm hạn mức không TSBĐ, Đi�
 
 Chất lượng dữ liệu: Số dòng thiếu doanh thu (mục tiêu 0), Số dòng trùng khóa (mục tiêu 0).
 
-## Trang 1: Tổng quan
+## Trang 1: Điều hành miền Bắc
 
-Hàng thẻ (Card) đầu trang: Tỷ lệ HT dư nợ, Tỷ lệ HT doanh thu, Điểm KPI trung bình, Quỹ incentive, Số tháng vi phạm hạn mức không TSBĐ.
+Trang tóm tắt dành cho giám đốc vùng/chi nhánh. Bộ lọc năm và tỉnh hỗ trợ đọc nhanh theo phạm vi; chọn chi nhánh trong bảng để đi sâu. Năm mới nhất có dữ liệu là mặc định khi không lọc.
 
-Slicer: dim_month[quarter] (dạng danh sách), dim_branch[province].
+Năm thẻ đầu trang: dư nợ cuối kỳ, tăng trưởng dư nợ YTD, tăng trưởng dư nợ YoY, doanh thu YTD và tăng trưởng doanh thu YTD YoY. Hai biểu đồ đường tách riêng dư nợ kế hoạch/thực tế và doanh thu kế hoạch/thực tế theo tháng. Bảng chi nhánh tập trung vào tỷ lệ hoàn thành dư nợ cuối kỳ, tăng trưởng dư nợ từ đầu quý, tỷ lệ hoàn thành doanh thu YTD, tăng trưởng doanh thu YTD YoY, điểm KPI và số tháng vi phạm hạn mức.
 
-Bảng (Table): dim_branch[branch_name], dim_branch[province], dim_branch[economic_profile], Tỷ lệ HT dư nợ, Tỷ lệ HT doanh thu, Chênh lệch doanh thu, Điểm KPI trung bình. Định dạng có điều kiện: tỷ lệ HT dưới 95% tô đỏ, từ 95% đến dưới 100% tô vàng, từ 100% trở lên tô xanh.
-
-Biểu đồ đường (Line chart): trục x là dim_month[month], giá trị là Tỷ lệ HT dư nợ, legend là dim_branch[branch_name]. Kỳ vọng: CN Hải Phòng thấp hơn các chi nhánh khác từ đầu 2026 do SME.
+Quy ước: dư nợ là số dư tại tháng báo cáo, so sánh với tháng 1, tháng đầu quý và cùng tháng năm trước; doanh thu là dòng phát sinh, so sánh lũy kế YTD với kế hoạch và cùng kỳ năm trước. Nếu chọn năm 2025, YoY sẽ trống do không có dữ liệu 2024.
 
 ## Trang 2: Kế hoạch vs thực tế
 
@@ -58,3 +57,7 @@ Ghi chú cuối trang: số dòng bị loại khỏi các tỷ lệ (dòng thi�
 ## Kiểm tra trước khi trình bày
 
 Tỷ lệ HT dư nợ toàn công ty xấp xỉ 100,6%. Điểm KPI trung bình xấp xỉ 100. Số tháng vi phạm không TSBĐ bằng 2 (CN Bắc Ninh tháng 11 và 12/2025). Số dòng thiếu doanh thu bằng 2. Số dòng trùng khóa bằng 1. Nếu con số lệch, kiểm tra lại bộ lọc và quan hệ trước khi tin số.
+
+## Giới hạn và hướng mở rộng
+
+Dashboard hiện bao quát kế hoạch/thực tế theo chi nhánh, phân khúc, sản phẩm, KPI, incentive, tuân thủ và chất lượng dữ liệu. Dữ liệu hiện chưa có ngân sách chi tiết, số dư theo ngày, lợi nhuận theo khách hàng hay forecast ở cấp chi nhánh; không nên tự suy diễn các chỉ tiêu này. Nếu cần xu hướng ngày/ngày, cần bổ sung fact theo ngày có nhãn rõ là mô phỏng hoặc dùng dữ liệu công khai phù hợp.

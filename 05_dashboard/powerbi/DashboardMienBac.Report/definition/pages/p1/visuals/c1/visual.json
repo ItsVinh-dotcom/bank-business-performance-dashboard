@@ -5,8 +5,8 @@
     "x": 20,
     "y": 20,
     "z": 0,
-    "height": 110,
-    "width": 240,
+    "height": 100,
+    "width": 232,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "fact_performance"
                     }
                   },
-                  "Property": "Tỷ lệ HT dư nợ"
+                  "Property": "Dư nợ cuối kỳ"
                 }
               },
-              "queryRef": "fact_performance.Tỷ lệ HT dư nợ",
-              "nativeQueryRef": "Tỷ lệ HT dư nợ"
+              "queryRef": "fact_performance.Dư nợ cuối kỳ",
+              "nativeQueryRef": "Dư nợ cuối kỳ"
             }
           ]
         }

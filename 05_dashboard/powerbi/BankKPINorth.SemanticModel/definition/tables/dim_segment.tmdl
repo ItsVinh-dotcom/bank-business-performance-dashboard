@@ -17,7 +17,7 @@ table dim_segment
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\dim_segment.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Source = Csv.Document(File.Contents("D:\Documents\03_career\Projects\bank-business-performance-dashboard\02_data\north_provinces\dim_segment.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    Typed = Table.TransformColumnTypes(Promoted, {{"segment_id", type text}, {"segment_name", type text}})
 				in

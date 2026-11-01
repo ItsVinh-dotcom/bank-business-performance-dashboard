@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "c2",
   "position": {
-    "x": 280,
+    "x": 270,
     "y": 20,
     "z": 0,
-    "height": 110,
-    "width": 240,
+    "height": 100,
+    "width": 232,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "fact_performance"
                     }
                   },
-                  "Property": "Tỷ lệ HT doanh thu"
+                  "Property": "Dư nợ tăng YTD"
                 }
               },
-              "queryRef": "fact_performance.Tỷ lệ HT doanh thu",
-              "nativeQueryRef": "Tỷ lệ HT doanh thu"
+              "queryRef": "fact_performance.Dư nợ tăng YTD",
+              "nativeQueryRef": "Dư nợ tăng YTD"
             }
           ]
         }

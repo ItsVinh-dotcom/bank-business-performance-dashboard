@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "c3",
   "position": {
-    "x": 540,
+    "x": 520,
     "y": 20,
     "z": 0,
-    "height": 110,
-    "width": 240,
+    "height": 100,
+    "width": 232,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "fact_incentive"
                     }
                   },
-                  "Property": "Điểm KPI trung bình"
+                  "Property": "Dư nợ tăng YoY"
                 }
               },
-              "queryRef": "fact_incentive.Điểm KPI trung bình",
-              "nativeQueryRef": "Điểm KPI trung bình"
+              "queryRef": "fact_performance.Dư nợ tăng YoY",
+              "nativeQueryRef": "Dư nợ tăng YoY"
             }
           ]
         }

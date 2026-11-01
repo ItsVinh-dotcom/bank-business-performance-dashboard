@@ -29,7 +29,7 @@ table dim_branch
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\dim_branch.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Source = Csv.Document(File.Contents("D:\Documents\03_career\Projects\bank-business-performance-dashboard\02_data\north_provinces\dim_branch.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    Typed = Table.TransformColumnTypes(Promoted, {{"branch_id", type text}, {"branch_name", type text}, {"province", type text}, {"economic_profile", type text}})
 				in

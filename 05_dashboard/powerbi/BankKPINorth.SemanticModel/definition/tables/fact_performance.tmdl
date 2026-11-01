@@ -69,6 +69,98 @@ table fact_performance
 		displayFolder: 4. Chất lượng dữ liệu
 		lineageTag: 491efba1-53cf-4f28-a995-34cea26791ea
 
+	/// Năm lớn nhất trong phạm vi lọc hiện tại; dùng làm kỳ báo cáo mặc định.
+	measure 'Năm báo cáo' = MAXX(ALLSELECTED(dim_month), dim_month[year])
+		formatString: 0
+		isHidden
+		displayFolder: 5. So sánh thời gian
+		lineageTag: 6db0126f-e580-4851-a376-3cc1b7b027b6
+
+	/// Tháng mới nhất có dữ liệu trong năm báo cáo đang chọn.
+	measure 'Tháng báo cáo' = VAR SelectedYear = [Năm báo cáo] RETURN MAXX(FILTER(ALLSELECTED(dim_month), dim_month[year] = SelectedYear), dim_month[month_num])
+		formatString: 0
+		isHidden
+		displayFolder: 5. So sánh thời gian
+		lineageTag: 38c91632-b53f-43bf-b4ed-4b3fd4d99a36
+
+	/// Dư nợ tại tháng mới nhất trong năm báo cáo đang chọn, không cộng dồn qua các tháng.
+	measure 'Dư nợ cuối kỳ' = VAR SelectedYear = [Năm báo cáo] VAR SelectedMonth = [Tháng báo cáo] RETURN CALCULATE([Dư nợ thực tế], FILTER(ALL(dim_month), dim_month[year] = SelectedYear && dim_month[month_num] = SelectedMonth))
+		formatString: #,0.0
+		displayFolder: 5. So sánh thời gian
+		lineageTag: 910062fb-d65a-44c2-8e85-fde36ccf54f5
+
+	/// Dư nợ tại tháng 1 của năm báo cáo.
+	measure 'Dư nợ đầu năm' = VAR SelectedYear = [Năm báo cáo] RETURN CALCULATE([Dư nợ thực tế], FILTER(ALL(dim_month), dim_month[year] = SelectedYear && dim_month[month_num] = 1))
+		formatString: #,0.0
+		displayFolder: 5. So sánh thời gian
+		lineageTag: 4a18e4f6-207a-49b1-baf2-89a45df6a80c
+
+	/// Tăng trưởng dư nợ cuối kỳ so với tháng 1 cùng năm.
+	measure 'Dư nợ tăng YTD' = DIVIDE([Dư nợ cuối kỳ] - [Dư nợ đầu năm], [Dư nợ đầu năm])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 5. So sánh thời gian
+		lineageTag: f358a00f-8aeb-4f95-a8ab-33c686b6579a
+
+	/// Dư nợ tại tháng đầu tiên của quý chứa tháng báo cáo.
+	measure 'Dư nợ đầu quý' = VAR SelectedYear = [Năm báo cáo] VAR StartMonth = 1 + 3 * INT(([Tháng báo cáo] - 1) / 3) RETURN CALCULATE([Dư nợ thực tế], FILTER(ALL(dim_month), dim_month[year] = SelectedYear && dim_month[month_num] = StartMonth))
+		formatString: #,0.0
+		displayFolder: 5. So sánh thời gian
+		lineageTag: d9eaca03-acd5-461c-a413-59130264095f
+
+	/// Tăng trưởng dư nợ từ tháng đầu quý đến tháng báo cáo.
+	measure 'Dư nợ tăng QoQ' = DIVIDE([Dư nợ cuối kỳ] - [Dư nợ đầu quý], [Dư nợ đầu quý])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 5. So sánh thời gian
+		lineageTag: a5acf479-c33d-4976-ad35-ea416918c26e
+
+	/// Dư nợ tại cùng tháng của năm trước.
+	measure 'Dư nợ cùng kỳ năm trước' = VAR SelectedYear = [Năm báo cáo] - 1 VAR SelectedMonth = [Tháng báo cáo] RETURN CALCULATE([Dư nợ thực tế], FILTER(ALL(dim_month), dim_month[year] = SelectedYear && dim_month[month_num] = SelectedMonth))
+		formatString: #,0.0
+		displayFolder: 5. So sánh thời gian
+		lineageTag: b81c180b-2e87-49b6-97a2-b6fe4ffda526
+
+	/// Tăng trưởng dư nợ so với cùng tháng năm trước.
+	measure 'Dư nợ tăng YoY' = DIVIDE([Dư nợ cuối kỳ] - [Dư nợ cùng kỳ năm trước], [Dư nợ cùng kỳ năm trước])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 5. So sánh thời gian
+		lineageTag: d54f0657-7637-4f01-8b8b-f7e0d8611d66
+
+	/// Doanh thu thực tế cộng dồn từ đầu năm đến tháng báo cáo.
+	measure 'Doanh thu YTD' = VAR SelectedYear = [Năm báo cáo] VAR SelectedMonth = [Tháng báo cáo] RETURN CALCULATE([Doanh thu thực tế], FILTER(ALL(dim_month), dim_month[year] = SelectedYear && dim_month[month_num] <= SelectedMonth))
+		formatString: #,0
+		displayFolder: 5. So sánh thời gian
+		lineageTag: 60cce232-8d71-46bd-993c-2804be08b97b
+
+	/// Doanh thu cộng dồn đến cùng tháng của năm trước.
+	measure 'Doanh thu YTD cùng kỳ' = VAR SelectedYear = [Năm báo cáo] - 1 VAR SelectedMonth = [Tháng báo cáo] RETURN CALCULATE([Doanh thu thực tế], FILTER(ALL(dim_month), dim_month[year] = SelectedYear && dim_month[month_num] <= SelectedMonth))
+		formatString: #,0
+		displayFolder: 5. So sánh thời gian
+		lineageTag: 0e63711d-88cb-4060-ae29-a5f40e110ce6
+
+	/// Tăng trưởng doanh thu lũy kế so với cùng kỳ năm trước.
+	measure 'Doanh thu tăng YTD YoY' = DIVIDE([Doanh thu YTD] - [Doanh thu YTD cùng kỳ], [Doanh thu YTD cùng kỳ])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 5. So sánh thời gian
+		lineageTag: cc25e073-04d1-42db-9e64-04ca17eb6d57
+
+	/// Doanh thu kế hoạch cộng dồn từ đầu năm đến tháng báo cáo.
+	measure 'Doanh thu kế hoạch YTD' = VAR SelectedYear = [Năm báo cáo] VAR SelectedMonth = [Tháng báo cáo] RETURN CALCULATE([Doanh thu kế hoạch], FILTER(ALL(dim_month), dim_month[year] = SelectedYear && dim_month[month_num] <= SelectedMonth))
+		formatString: #,0
+		displayFolder: 5. So sánh thời gian
+		lineageTag: 11a2b9d1-5251-4350-b34a-10b79775df4a
+
+	/// Doanh thu lũy kế thực tế chia doanh thu lũy kế kế hoạch.
+	measure 'Tỷ lệ HT doanh thu YTD' = DIVIDE([Doanh thu YTD], [Doanh thu kế hoạch YTD])
+		formatString: 0.0%
+		displayFolder: 5. So sánh thời gian
+		lineageTag: b444f907-ec46-4aa1-a14f-050b87d14101
+
+	/// Tỷ lệ hoàn thành kế hoạch dư nợ tại tháng báo cáo.
+	measure 'Tỷ lệ HT dư nợ cuối kỳ' = VAR SelectedYear = [Năm báo cáo] VAR SelectedMonth = [Tháng báo cáo] RETURN CALCULATE([Tỷ lệ HT dư nợ], FILTER(ALL(dim_month), dim_month[year] = SelectedYear && dim_month[month_num] = SelectedMonth))
+		formatString: 0.0%
+		displayFolder: 5. So sánh thời gian
+		lineageTag: 66d6d2c4-4a98-46d0-8f8f-52108047d785
+
 	column month
 		dataType: string
 		lineageTag: 3e7a09ab-f0b6-415c-ba11-79755f8b25e3
@@ -139,7 +231,7 @@ table fact_performance
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\fact_performance.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Source = Csv.Document(File.Contents("D:\Documents\03_career\Projects\bank-business-performance-dashboard\02_data\north_provinces\fact_performance.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"branch_id", type text}, {"segment_id", type text}, {"product_id", type text}, {"plan_balance_bn", type number}, {"actual_balance_bn", type number}, {"plan_revenue_mn", type number}, {"actual_revenue_mn", type number}, {"plan_new_customers", Int64.Type}, {"actual_new_customers", Int64.Type}})
 				in

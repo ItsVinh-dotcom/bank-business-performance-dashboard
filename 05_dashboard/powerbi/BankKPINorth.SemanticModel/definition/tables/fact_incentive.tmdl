@@ -67,7 +67,7 @@ table fact_incentive
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\fact_incentive.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Source = Csv.Document(File.Contents("D:\Documents\03_career\Projects\bank-business-performance-dashboard\02_data\north_provinces\fact_incentive.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"branch_id", type text}, {"balance_achievement", type number}, {"revenue_achievement", type number}, {"kpi_score", type number}, {"incentive_pool_mn", type number}})
 				in

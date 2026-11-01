@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "l3",
+  "position": {
+    "x": 650,
+    "y": 225,
+    "z": 0,
+    "height": 250,
+    "width": 610,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_month"
+                    }
+                  },
+                  "Property": "month"
+                }
+              },
+              "queryRef": "dim_month.month",
+              "nativeQueryRef": "month",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "Doanh thu thực tế"
+                }
+              },
+              "queryRef": "fact_performance.Doanh thu thực tế",
+              "nativeQueryRef": "Doanh thu thực tế"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "Doanh thu kế hoạch"
+                }
+              },
+              "queryRef": "fact_performance.Doanh thu kế hoạch",
+              "nativeQueryRef": "Doanh thu kế hoạch"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Doanh thu: kế hoạch và thực tế theo tháng'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

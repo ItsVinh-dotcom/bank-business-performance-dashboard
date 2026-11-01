@@ -56,7 +56,7 @@ table fact_policy_check
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\north_provinces\fact_policy_check.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Source = Csv.Document(File.Contents("D:\Documents\03_career\Projects\bank-business-performance-dashboard\02_data\north_provinces\fact_policy_check.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"branch_id", type text}, {"unsecured_loan_ratio", type number}, {"unsecured_loan_limit", type number}, {"commission_ratio", type number}, {"commission_cap", type number}})
 				in
