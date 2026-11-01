@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "heading_m1",
+  "position": {
+    "x": 736,
+    "y": 70,
+    "z": 7000,
+    "height": 22,
+    "width": 528,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Chênh lệch theo phân khúc",
+                    "textStyle": {
+                      "fontSize": "10.0pt",
+                      "color": "#A30E33",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

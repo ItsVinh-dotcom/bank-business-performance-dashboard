@@ -1,19 +1,19 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "sc1",
   "position": {
-    "x": 660,
-    "y": 340,
-    "z": 0,
-    "height": 350,
-    "width": 600,
-    "tabOrder": 0
+    "x": 735.74123989218322,
+    "y": 396.76549865229111,
+    "z": 4000,
+    "height": 303.61185983827494,
+    "width": 527.87061994609167,
+    "tabOrder": 3000
   },
   "visual": {
-    "visualType": "scatterChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
-        "Details": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -27,26 +27,9 @@
                 }
               },
               "queryRef": "dim_branch.branch_name",
-              "nativeQueryRef": "branch_name"
-            }
-          ]
-        },
-        "X": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_performance"
-                    }
-                  },
-                  "Property": "Tỷ lệ HT doanh thu"
-                }
-              },
-              "queryRef": "fact_performance.Tỷ lệ HT doanh thu",
-              "nativeQueryRef": "Tỷ lệ HT doanh thu",
-              "active": true
+              "nativeQueryRef": "branch_name",
+              "active": true,
+              "displayName": "Chi nhánh"
             }
           ]
         },
@@ -57,14 +40,15 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_incentive"
+                      "Entity": "fact_performance"
                     }
                   },
-                  "Property": "Điểm KPI trung bình"
+                  "Property": "Tỷ lệ HT doanh thu YTD"
                 }
               },
-              "queryRef": "fact_incentive.Điểm KPI trung bình",
-              "nativeQueryRef": "Điểm KPI trung bình"
+              "queryRef": "fact_performance.Tỷ lệ HT doanh thu YTD",
+              "nativeQueryRef": "Tỷ lệ HT doanh thu YTD",
+              "displayName": "Hoàn thành doanh thu"
             }
           ]
         }

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "footer",
+  "position": {
+    "x": 12,
+    "y": 622,
+    "z": 11000,
+    "height": 76,
+    "width": 166,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Dữ liệu mô phỏng",
+                    "textStyle": {
+                      "fontSize": "8.5pt",
+                      "color": "#59636D",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Đơn vị: tỷ đồng, triệu đồng",
+                    "textStyle": {
+                      "fontSize": "8.0pt",
+                      "color": "#59636D"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Không phải số liệu MSB",
+                    "textStyle": {
+                      "fontSize": "8.0pt",
+                      "color": "#59636D"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

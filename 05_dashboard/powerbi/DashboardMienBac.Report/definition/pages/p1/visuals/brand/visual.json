@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "brand",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 12000,
+    "height": 82,
+    "width": 190,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "BANK KPI",
+                    "textStyle": {
+                      "fontSize": "14.0pt",
+                      "color": "#FFFFFF",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Mô phỏng hiệu quả kinh doanh",
+                    "textStyle": {
+                      "fontSize": "8.5pt",
+                      "color": "#FCE8EC"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

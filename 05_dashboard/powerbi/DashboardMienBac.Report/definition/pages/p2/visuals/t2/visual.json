@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "t2",
   "position": {
-    "x": 20,
-    "y": 370,
-    "z": 0,
-    "height": 320,
-    "width": 1240,
-    "tabOrder": 0
+    "x": 215.63342318059298,
+    "y": 404.52830188679246,
+    "z": 4000,
+    "height": 295.84905660377359,
+    "width": 640,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_segment.segment_name",
-              "nativeQueryRef": "segment_name"
+              "nativeQueryRef": "segment_name",
+              "displayName": "Phân khúc"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "dim_product.product_name",
-              "nativeQueryRef": "product_name"
+              "nativeQueryRef": "product_name",
+              "displayName": "Sản phẩm"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "fact_performance.Tỷ lệ HT dư nợ",
-              "nativeQueryRef": "Tỷ lệ HT dư nợ"
+              "nativeQueryRef": "Tỷ lệ HT dư nợ",
+              "displayName": "Hoàn thành dư nợ"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "fact_performance.Tỷ lệ HT doanh thu",
-              "nativeQueryRef": "Tỷ lệ HT doanh thu"
+              "nativeQueryRef": "Tỷ lệ HT doanh thu",
+              "displayName": "Hoàn thành doanh thu"
             },
             {
               "field": {
@@ -83,7 +87,8 @@
                 }
               },
               "queryRef": "fact_performance.Chênh lệch doanh thu",
-              "nativeQueryRef": "Chênh lệch doanh thu"
+              "nativeQueryRef": "Chênh lệch doanh thu",
+              "displayName": "Chênh lệch doanh thu"
             }
           ]
         }

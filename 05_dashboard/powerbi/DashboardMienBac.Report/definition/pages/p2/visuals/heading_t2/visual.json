@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "heading_t2",
+  "position": {
+    "x": 215.63342318059298,
+    "y": 353.63881401617249,
+    "z": 8000,
+    "height": 39.676549865229106,
+    "width": 640,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Chi tiết theo sản phẩm",
+                    "textStyle": {
+                      "fontSize": "10.0pt",
+                      "color": "#A30E33",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -9,6 +9,15 @@
         "page": "1.3.91"
       },
       "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "MSB_Executive.json",
+      "reportVersionAtImport": {
+        "visual": "1.8.91",
+        "report": "2.0.91",
+        "page": "1.3.91"
+      },
+      "type": "RegisteredResources"
     }
   },
   "objects": {
@@ -35,6 +44,17 @@
           "name": "CY24SU06",
           "path": "BaseThemes/CY24SU06.json",
           "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "MSB_Executive.json",
+          "path": "MSB_Executive.json",
+          "type": "CustomTheme"
         }
       ]
     }

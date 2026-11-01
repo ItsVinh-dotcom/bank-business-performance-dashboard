@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "heading_l3",
+  "position": {
+    "x": 735.74123989218322,
+    "y": 163.88140161725067,
+    "z": 10000,
+    "height": 38.81401617250674,
+    "width": 527.87061994609167,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Doanh thu kế hoạch và thực tế",
+                    "textStyle": {
+                      "fontSize": "10.0pt",
+                      "color": "#A30E33",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

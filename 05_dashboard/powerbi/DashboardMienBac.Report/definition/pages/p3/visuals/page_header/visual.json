@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "page_header",
+  "position": {
+    "x": 216,
+    "y": 2,
+    "z": 12000,
+    "height": 64,
+    "width": 1048,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Tuân thủ và tiền thưởng",
+                    "textStyle": {
+                      "fontSize": "16.0pt",
+                      "color": "#A30E33",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Theo dõi hạn mức chính sách và quỹ thưởng đủ điều kiện",
+                    "textStyle": {
+                      "fontSize": "8.5pt",
+                      "color": "#59636D"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

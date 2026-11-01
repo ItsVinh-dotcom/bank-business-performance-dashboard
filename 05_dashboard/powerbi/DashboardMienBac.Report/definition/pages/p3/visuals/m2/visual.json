@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "m2",
   "position": {
-    "x": 660,
-    "y": 20,
-    "z": 0,
-    "height": 300,
-    "width": 600,
-    "tabOrder": 0
+    "x": 676.22641509433959,
+    "y": 112.12938005390835,
+    "z": 3000,
+    "height": 232.02156334231805,
+    "width": 587.3854447439353,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -28,7 +28,8 @@
               },
               "queryRef": "dim_month.quarter",
               "nativeQueryRef": "quarter",
-              "active": true
+              "active": true,
+              "displayName": "Quý"
             }
           ]
         },
@@ -47,7 +48,8 @@
               },
               "queryRef": "dim_branch.branch_name",
               "nativeQueryRef": "branch_name",
-              "active": true
+              "active": true,
+              "displayName": "Chi nhánh"
             }
           ]
         },
@@ -70,6 +72,44 @@
           ]
         }
       }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90.30191101005516D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_month"
+                        }
+                      },
+                      "Property": "quarter"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

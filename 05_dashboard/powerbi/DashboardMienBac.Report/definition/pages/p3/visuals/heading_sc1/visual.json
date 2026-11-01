@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "heading_sc1",
+  "position": {
+    "x": 735.74123989218322,
+    "y": 353.63881401617249,
+    "z": 8000,
+    "height": 35.363881401617249,
+    "width": 527.87061994609167,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Hoàn thành doanh thu theo chi nhánh",
+                    "textStyle": {
+                      "fontSize": "10.0pt",
+                      "color": "#A30E33",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

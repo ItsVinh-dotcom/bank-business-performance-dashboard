@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "t1",
   "position": {
-    "x": 20,
-    "y": 500,
-    "z": 0,
-    "height": 200,
-    "width": 1240,
-    "tabOrder": 0
+    "x": 215.63342318059298,
+    "y": 545.12129380053909,
+    "z": 8000,
+    "height": 155.25606469002696,
+    "width": 1047.9784366576819,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_branch.branch_name",
-              "nativeQueryRef": "branch_name"
+              "nativeQueryRef": "branch_name",
+              "displayName": "Chi nhánh"
             },
             {
               "field": {
@@ -40,8 +41,9 @@
                   "Property": "province"
                 }
               },
-              "queryRef": "dim_branch.branch_name",
-              "nativeQueryRef": "branch_name"
+              "queryRef": "dim_branch.province",
+              "nativeQueryRef": "province",
+              "displayName": "Tỉnh/thành"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "fact_performance.Tỷ lệ HT dư nợ cuối kỳ",
-              "nativeQueryRef": "Tỷ lệ HT dư nợ cuối kỳ"
+              "nativeQueryRef": "Tỷ lệ HT dư nợ cuối kỳ",
+              "displayName": "Hoàn thành dư nợ"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "fact_performance.Dư nợ tăng QoQ",
-              "nativeQueryRef": "Dư nợ tăng QoQ"
+              "nativeQueryRef": "Dư nợ tăng QoQ",
+              "displayName": "Tăng dư nợ quý"
             },
             {
               "field": {
@@ -83,7 +87,8 @@
                 }
               },
               "queryRef": "fact_performance.Tỷ lệ HT doanh thu YTD",
-              "nativeQueryRef": "Tỷ lệ HT doanh thu YTD"
+              "nativeQueryRef": "Tỷ lệ HT doanh thu YTD",
+              "displayName": "Hoàn thành doanh thu"
             },
             {
               "field": {
@@ -97,7 +102,8 @@
                 }
               },
               "queryRef": "fact_performance.Doanh thu tăng YTD YoY",
-              "nativeQueryRef": "Doanh thu tăng YTD YoY"
+              "nativeQueryRef": "Doanh thu tăng YTD YoY",
+              "displayName": "Tăng doanh thu cùng kỳ"
             },
             {
               "field": {
@@ -111,7 +117,8 @@
                 }
               },
               "queryRef": "fact_incentive.Điểm KPI trung bình",
-              "nativeQueryRef": "Điểm KPI trung bình"
+              "nativeQueryRef": "Điểm KPI trung bình",
+              "displayName": "Điểm KPI"
             },
             {
               "field": {
@@ -125,7 +132,8 @@
                 }
               },
               "queryRef": "fact_policy_check.Số tháng vi phạm hạn mức không TSBĐ",
-              "nativeQueryRef": "Số tháng vi phạm hạn mức không TSBĐ"
+              "nativeQueryRef": "Số tháng vi phạm hạn mức không TSBĐ",
+              "displayName": "Tháng vi phạm"
             }
           ]
         }
@@ -205,33 +213,39 @@
           "selector": {
             "metadata": "fact_performance.Chênh lệch doanh thu"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.45275867117877D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_incentive.Điểm KPI trung bình"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "175.62809906700303D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_policy_check.Số tháng vi phạm hạn mức không TSBĐ"
+          }
         }
       ],
       "columnHeaders": [
         {
           "properties": {}
-        }
-      ]
-    },
-    "objects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Hiệu quả theo chi nhánh'"
-                }
-              }
-            }
-          }
         }
       ]
     },

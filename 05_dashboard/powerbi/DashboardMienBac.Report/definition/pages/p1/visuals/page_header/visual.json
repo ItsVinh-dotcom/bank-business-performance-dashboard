@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "page_header",
+  "position": {
+    "x": 216,
+    "y": 2,
+    "z": 15000,
+    "height": 64,
+    "width": 1048,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Tình hình kinh doanh | Miền Bắc",
+                    "textStyle": {
+                      "fontSize": "16.0pt",
+                      "color": "#A30E33",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Dư nợ cuối kỳ · Doanh thu lũy kế · Kế hoạch và tuân thủ",
+                    "textStyle": {
+                      "fontSize": "8.5pt",
+                      "color": "#59636D"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

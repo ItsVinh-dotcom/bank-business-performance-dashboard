@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "page_header",
+  "position": {
+    "x": 216,
+    "y": 2,
+    "z": 8000,
+    "height": 64,
+    "width": 1048,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Chất lượng dữ liệu",
+                    "textStyle": {
+                      "fontSize": "16.0pt",
+                      "color": "#A30E33",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Theo dõi dữ liệu thiếu và trùng trước khi phân tích",
+                    "textStyle": {
+                      "fontSize": "8.5pt",
+                      "color": "#59636D"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

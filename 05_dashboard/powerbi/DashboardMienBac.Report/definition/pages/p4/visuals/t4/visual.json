@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "t4",
   "position": {
-    "x": 20,
-    "y": 170,
-    "z": 0,
-    "height": 500,
-    "width": 1240,
-    "tabOrder": 0
+    "x": 215.63342318059298,
+    "y": 232.02156334231805,
+    "z": 3000,
+    "height": 468.355795148248,
+    "width": 1047.9784366576819,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "fact_performance.month",
-              "nativeQueryRef": "month"
+              "nativeQueryRef": "month",
+              "displayName": "Tháng"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "fact_performance.branch_id",
-              "nativeQueryRef": "branch_id"
+              "nativeQueryRef": "branch_id",
+              "displayName": "Mã chi nhánh"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "fact_performance.segment_id",
-              "nativeQueryRef": "segment_id"
+              "nativeQueryRef": "segment_id",
+              "displayName": "Mã phân khúc"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "fact_performance.product_id",
-              "nativeQueryRef": "product_id"
+              "nativeQueryRef": "product_id",
+              "displayName": "Mã sản phẩm"
             },
             {
               "field": {
@@ -83,11 +87,91 @@
                 }
               },
               "queryRef": "fact_performance.actual_revenue_mn",
-              "nativeQueryRef": "actual_revenue_mn"
+              "nativeQueryRef": "actual_revenue_mn",
+              "displayName": "Doanh thu thực tế (triệu đồng)"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "128.89757070056004D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_performance.actual_revenue_mn"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "215.9811040610609D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_performance.month"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "224.6928151839506D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_performance.branch_id"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "192.46630727762803D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_performance.segment_id"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "254.01879247745526D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_performance.product_id"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

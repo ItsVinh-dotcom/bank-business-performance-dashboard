@@ -1,0 +1,121 @@
+{
+  "name": "MSB Executive",
+  "dataColors": [
+    "#C8102E",
+    "#173F5F",
+    "#E2A72E",
+    "#27867A",
+    "#8B5265",
+    "#7A8792",
+    "#5A7D45"
+  ],
+  "good": "#27867A",
+  "neutral": "#E2A72E",
+  "bad": "#C8102E",
+  "background": "#F4F6F8",
+  "foreground": "#292D32",
+  "firstLevelElements": "#292D32",
+  "secondLevelElements": "#59636D",
+  "thirdLevelElements": "#E7EAEE",
+  "fourthLevelElements": "#7A8792",
+  "secondaryBackground": "#D8DEE5",
+  "tableAccent": "#C8102E",
+  "textClasses": {
+    "callout": {
+      "fontSize": 28,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#292D32"
+    },
+    "title": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#8F1025"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#292D32"
+    },
+    "label": {
+      "fontSize": 10,
+      "fontFace": "Segoe UI",
+      "color": "#343A40"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#D9DEE5"
+              }
+            },
+            "radius": 8
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "fontSize": 12,
+            "fontFace": "Segoe UI Semibold",
+            "color": {
+              "solid": {
+                "color": "#8F1025"
+              }
+            },
+            "bold": true
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#173F5F"
+              }
+            },
+            "fontSize": 26,
+            "fontFace": "Segoe UI Semibold",
+            "labelDisplayUnits": 1
+          }
+        ],
+        "categoryLabels": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#59636D"
+              }
+            },
+            "fontSize": 10,
+            "fontFace": "Segoe UI"
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F4F6F8"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

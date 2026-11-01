@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "s2",
   "position": {
-    "x": 215,
-    "y": 145,
-    "z": 0,
-    "height": 60,
-    "width": 260,
-    "tabOrder": 0
+    "x": 12.075471698113207,
+    "y": 209.59568733153637,
+    "z": 17000,
+    "height": 69.865229110512132,
+    "width": 165.60646900269541,
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "slicer",
@@ -28,11 +28,76 @@
               },
               "queryRef": "dim_branch.province",
               "nativeQueryRef": "province",
-              "active": true
+              "active": true,
+              "displayName": "Tỉnh/thành"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173F5F'"
+                    }
+                  }
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "shared_province",
+      "fieldChanges": false,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

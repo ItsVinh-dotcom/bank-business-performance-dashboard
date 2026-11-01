@@ -18,3 +18,5 @@ ref table dim_segment
 ref table dim_product
 ref table dim_month
 
+ref cultureInfo en-US
+

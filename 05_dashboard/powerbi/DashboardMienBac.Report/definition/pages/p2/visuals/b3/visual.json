@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "b3",
+  "position": {
+    "x": 867.70889487870613,
+    "y": 404.52830188679246,
+    "z": 2000,
+    "height": 295.84905660377359,
+    "width": 395.90296495956869,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_segment"
+                    }
+                  },
+                  "Property": "segment_name"
+                }
+              },
+              "queryRef": "dim_segment.segment_name",
+              "nativeQueryRef": "segment_name",
+              "active": true,
+              "displayName": "Phân khúc"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_performance"
+                    }
+                  },
+                  "Property": "Chênh lệch doanh thu"
+                }
+              },
+              "queryRef": "fact_performance.Chênh lệch doanh thu",
+              "nativeQueryRef": "Chênh lệch doanh thu"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

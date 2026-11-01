@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "c4",
   "position": {
-    "x": 770,
-    "y": 20,
-    "z": 0,
-    "height": 100,
-    "width": 232,
-    "tabOrder": 0
+    "x": 852,
+    "y": 72,
+    "z": 4000,
+    "height": 84,
+    "width": 200,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -20,18 +20,83 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_incentive"
+                      "Entity": "fact_performance"
                     }
                   },
                   "Property": "Doanh thu YTD"
                 }
               },
               "queryRef": "fact_performance.Doanh thu YTD",
-              "nativeQueryRef": "Doanh thu YTD"
+              "nativeQueryRef": "Doanh thu YTD",
+              "displayName": "Doanh thu lũy kế"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#173F5F'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24.0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1.0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#59636D'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.5D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

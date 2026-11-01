@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "b2",
   "position": {
-    "x": 20,
-    "y": 340,
-    "z": 0,
-    "height": 350,
-    "width": 620,
+    "x": 215.63342318059298,
+    "y": 396.76549865229111,
+    "z": 1000,
+    "height": 303.61185983827494,
+    "width": 510.61994609164418,
     "tabOrder": 0
   },
   "visual": {
@@ -28,7 +28,8 @@
               },
               "queryRef": "dim_branch.branch_name",
               "nativeQueryRef": "branch_name",
-              "active": true
+              "active": true,
+              "displayName": "Chi nhánh"
             }
           ]
         },
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "fact_incentive.Quỹ incentive",
-              "nativeQueryRef": "Quỹ incentive"
+              "nativeQueryRef": "Quỹ incentive",
+              "displayName": "Quỹ thưởng đề xuất"
             },
             {
               "field": {
@@ -60,7 +62,8 @@
                 }
               },
               "queryRef": "fact_incentive.Quỹ có điều kiện tuân thủ",
-              "nativeQueryRef": "Quỹ có điều kiện tuân thủ"
+              "nativeQueryRef": "Quỹ có điều kiện tuân thủ",
+              "displayName": "Quỹ đủ điều kiện chi trả"
             }
           ]
         }
