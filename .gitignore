@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets/
+
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+*.log
+~$*.xlsx
+~$*.xlsm
+*.tmp

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+branch=$(git symbolic-ref --quiet --short HEAD) || {
+    echo "Auto-push failed: HEAD is detached." >&2
+    exit 1
+}
+
+git push --set-upstream origin "$branch"
