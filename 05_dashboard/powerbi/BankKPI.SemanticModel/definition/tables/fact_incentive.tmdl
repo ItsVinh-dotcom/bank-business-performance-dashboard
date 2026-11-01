@@ -1,0 +1,69 @@
+table fact_incentive
+	lineageTag: 7f9232b0-1db7-4597-8e0a-a0ea97e85754
+
+	measure 'Điểm KPI trung bình' = AVERAGE(fact_incentive[kpi_score])
+		formatString: 0.0
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: e6201a11-faa6-47f2-b61a-56e97f419b5a
+
+	measure 'Tỷ lệ tháng đạt KPI' = DIVIDE(COUNTROWS(FILTER(fact_incentive, fact_incentive[kpi_score] >= 100)), COUNTROWS(fact_incentive))
+		formatString: 0.0%
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: 99c9f344-3b5a-4d16-aa71-00c2f337af16
+
+	/// Triệu VND. Công thức minh họa, xem kpi_dictionary K12.
+	measure 'Quỹ incentive' = SUM(fact_incentive[incentive_pool_mn])
+		formatString: #,0.0
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: f3e8158f-9b00-4abe-b742-687149c3590d
+
+	column month
+		dataType: string
+		lineageTag: 4a514007-165b-4f84-a684-bda354449eba
+		summarizeBy: none
+		sourceColumn: month
+
+	column branch_id
+		dataType: string
+		lineageTag: 28f1d210-dfb6-48ba-8222-c506324798f9
+		summarizeBy: none
+		sourceColumn: branch_id
+
+	column balance_achievement
+		dataType: double
+		formatString: 0.0%
+		lineageTag: a4df4909-876e-4df8-8e04-6980a7c48a20
+		summarizeBy: none
+		sourceColumn: balance_achievement
+
+	column revenue_achievement
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7a0ba199-599a-433c-8dbb-2729c1133687
+		summarizeBy: none
+		sourceColumn: revenue_achievement
+
+	column kpi_score
+		dataType: double
+		formatString: 0.00
+		lineageTag: ad07c055-f085-4bcd-9198-17bf8f314322
+		summarizeBy: none
+		sourceColumn: kpi_score
+
+	column incentive_pool_mn
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 1c497003-af84-498a-bc10-2abedc015433
+		summarizeBy: sum
+		sourceColumn: incentive_pool_mn
+
+	partition fact_incentive = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\raw_simulated\fact_incentive.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"branch_id", type text}, {"balance_achievement", type number}, {"revenue_achievement", type number}, {"kpi_score", type number}, {"incentive_pool_mn", type number}})
+				in
+				    Typed
+

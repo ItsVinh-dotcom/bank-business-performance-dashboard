@@ -1,0 +1,63 @@
+table fact_policy_check
+	lineageTag: 5f1cbb89-a633-4127-b12f-c16c0c0e89f1
+
+	measure 'Số tháng vi phạm hạn mức không TSBĐ' = SUMX(fact_policy_check, IF(fact_policy_check[unsecured_loan_ratio] > fact_policy_check[unsecured_loan_limit], 1, 0))
+		formatString: #,0
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: 666bc5f2-6daa-4dac-bf30-0638fadb467a
+
+	measure 'Số tháng vi phạm trần hoa hồng' = SUMX(fact_policy_check, IF(fact_policy_check[commission_ratio] > fact_policy_check[commission_cap], 1, 0))
+		formatString: #,0
+		displayFolder: 2. Chính sách và incentive
+		lineageTag: c5bdbcc2-2240-4711-b124-34d74edc307a
+
+	column month
+		dataType: string
+		lineageTag: 0900554a-a78c-438b-be5b-4c5248636b26
+		summarizeBy: none
+		sourceColumn: month
+
+	column branch_id
+		dataType: string
+		lineageTag: cabf8b91-7a8c-4f1f-8d61-9a6dd295f2c9
+		summarizeBy: none
+		sourceColumn: branch_id
+
+	column unsecured_loan_ratio
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 5ac2b252-749e-4961-8224-fd8c50e4e1bc
+		summarizeBy: none
+		sourceColumn: unsecured_loan_ratio
+
+	column unsecured_loan_limit
+		dataType: double
+		formatString: 0.0%
+		lineageTag: d8aed7d0-9b49-4cb3-91a5-5d4fc26ccb85
+		summarizeBy: none
+		sourceColumn: unsecured_loan_limit
+
+	column commission_ratio
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 5fe626e1-d3d7-48a8-ba7e-c4cb3bb72c9d
+		summarizeBy: none
+		sourceColumn: commission_ratio
+
+	column commission_cap
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 1d8d71b0-43c6-45a3-accf-e8300ba9b733
+		summarizeBy: none
+		sourceColumn: commission_cap
+
+	partition fact_policy_check = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\raw_simulated\fact_policy_check.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"branch_id", type text}, {"unsecured_loan_ratio", type number}, {"unsecured_loan_limit", type number}, {"commission_ratio", type number}, {"commission_cap", type number}})
+				in
+				    Typed
+

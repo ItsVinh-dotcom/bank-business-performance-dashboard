@@ -1,0 +1,37 @@
+table dim_month
+	lineageTag: 9b644312-2cf2-456e-838e-64fd6b5fe758
+
+	column month
+		dataType: string
+		lineageTag: 9e2b041b-bcf3-486e-a0a2-c0158e851b7d
+		summarizeBy: none
+		sourceColumn: month
+
+	column year
+		dataType: int64
+		lineageTag: 5b23dcc5-de15-4c74-86f8-a7bada2c629f
+		summarizeBy: none
+		sourceColumn: year
+
+	column month_num
+		dataType: int64
+		lineageTag: 29b13a2f-0bf0-4a37-8ee6-7878782000b9
+		summarizeBy: none
+		sourceColumn: month_num
+
+	column quarter
+		dataType: string
+		lineageTag: 615b30ec-9af5-47fb-99bf-cca99fe16452
+		summarizeBy: none
+		sourceColumn: quarter
+
+	partition dim_month = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\reference\dim_month.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"year", Int64.Type}, {"month_num", Int64.Type}, {"quarter", type text}})
+				in
+				    Typed
+

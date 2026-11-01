@@ -1,0 +1,32 @@
+relationship perf_branch
+	fromColumn: fact_performance.branch_id
+	toColumn: dim_branch.branch_id
+
+relationship perf_segment
+	fromColumn: fact_performance.segment_id
+	toColumn: dim_segment.segment_id
+
+relationship perf_product
+	fromColumn: fact_performance.product_id
+	toColumn: dim_product.product_id
+
+relationship perf_month
+	fromColumn: fact_performance.month
+	toColumn: dim_month.month
+
+relationship policy_branch
+	fromColumn: fact_policy_check.branch_id
+	toColumn: dim_branch.branch_id
+
+relationship policy_month
+	fromColumn: fact_policy_check.month
+	toColumn: dim_month.month
+
+relationship incentive_branch
+	fromColumn: fact_incentive.branch_id
+	toColumn: dim_branch.branch_id
+
+relationship incentive_month
+	fromColumn: fact_incentive.month
+	toColumn: dim_month.month
+

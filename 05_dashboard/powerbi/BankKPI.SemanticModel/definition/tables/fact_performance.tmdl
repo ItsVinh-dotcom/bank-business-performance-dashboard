@@ -1,0 +1,141 @@
+table fact_performance
+	lineageTag: b0f01fc9-f7be-44d2-b195-ca8a66acf3a1
+
+	measure 'Dư nợ kế hoạch' = SUM(fact_performance[plan_balance_bn])
+		formatString: #,0.0
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: c708cf4f-c7ba-4190-a599-ace9fb406623
+
+	measure 'Dư nợ thực tế' = SUM(fact_performance[actual_balance_bn])
+		formatString: #,0.0
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: 4a68ae4c-1652-4498-ad1d-5338400c7057
+
+	/// Tổng thực tế chia tổng kế hoạch (có trọng số). Ngưỡng: >=100% đạt, 95-100% cảnh báo, <95% đỏ.
+	measure 'Tỷ lệ HT dư nợ' = DIVIDE([Dư nợ thực tế], [Dư nợ kế hoạch])
+		formatString: 0.0%
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: f485d472-9074-4982-a2cc-579082d08149
+
+	measure 'Chênh lệch dư nợ' = [Dư nợ thực tế] - [Dư nợ kế hoạch]
+		formatString: #,0.0;-#,0.0
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: e980afa6-be2d-4acc-a947-2822f6f7003e
+
+	measure 'Doanh thu kế hoạch' = SUM(fact_performance[plan_revenue_mn])
+		formatString: #,0
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: 5d8964fd-a824-4377-b589-2ef86613e48e
+
+	measure 'Doanh thu thực tế' = SUM(fact_performance[actual_revenue_mn])
+		formatString: #,0
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: 04ba1f11-e0ad-4d0c-b9d3-245d41a93e57
+
+	measure 'Tỷ lệ HT doanh thu' = DIVIDE([Doanh thu thực tế], [Doanh thu kế hoạch])
+		formatString: 0.0%
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: f86c5ccf-ed58-4909-be9d-3de579471e12
+
+	measure 'Chênh lệch doanh thu' = [Doanh thu thực tế] - [Doanh thu kế hoạch]
+		formatString: #,0;-#,0
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: 104be434-a862-4b40-aa2e-63f5d5edfc0b
+
+	measure 'KH mới kế hoạch' = SUM(fact_performance[plan_new_customers])
+		formatString: #,0
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: 62e2c143-56ec-4e04-96bd-3ad938c5e14b
+
+	measure 'KH mới thực tế' = SUM(fact_performance[actual_new_customers])
+		formatString: #,0
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: 05a99630-ca7a-4d49-ae7b-068893308181
+
+	measure 'Tỷ lệ HT khách hàng mới' = DIVIDE([KH mới thực tế], [KH mới kế hoạch])
+		formatString: 0.0%
+		displayFolder: 1. Kế hoạch vs thực tế
+		lineageTag: 64437e33-0e8d-44ae-b1eb-23ed0bbf44dd
+
+	/// DQ01: số dòng thiếu actual_revenue_mn. Mục tiêu bằng 0.
+	measure 'Số dòng thiếu doanh thu' = COUNTROWS(FILTER(fact_performance, ISBLANK(fact_performance[actual_revenue_mn])))
+		formatString: #,0
+		displayFolder: 4. Chất lượng dữ liệu
+		lineageTag: 4427aede-47a8-4a81-bddb-ea353201cb24
+
+	column month
+		dataType: string
+		lineageTag: 486f5ee2-bdb6-4d52-96c3-aba5ed1e62f8
+		summarizeBy: none
+		sourceColumn: month
+
+	column branch_id
+		dataType: string
+		lineageTag: 73ce6359-7869-4131-ade4-3ad413aceb8c
+		summarizeBy: none
+		sourceColumn: branch_id
+
+	column segment_id
+		dataType: string
+		lineageTag: 32bfe2da-08c1-4df3-88a2-a8f746705c0e
+		summarizeBy: none
+		sourceColumn: segment_id
+
+	column product_id
+		dataType: string
+		lineageTag: ce4930bd-e5cb-41ec-b7c3-0f55994c8c7e
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column plan_balance_bn
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d9f6be2f-6900-436a-b3b9-b513975cab49
+		summarizeBy: sum
+		sourceColumn: plan_balance_bn
+
+	column actual_balance_bn
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 813c31ae-ddaf-42ee-a908-36082db53a06
+		summarizeBy: sum
+		sourceColumn: actual_balance_bn
+
+	column plan_revenue_mn
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 244e6f94-0c42-4cb4-9b11-c44f86fc0052
+		summarizeBy: sum
+		sourceColumn: plan_revenue_mn
+
+	column actual_revenue_mn
+		dataType: double
+		formatString: #,0.0
+		lineageTag: a6e33c84-145f-403d-b48f-90201fc3c8a8
+		summarizeBy: sum
+		sourceColumn: actual_revenue_mn
+
+	column plan_new_customers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 1ac7dcc8-4e72-486d-b1dd-08c5af4d5eae
+		summarizeBy: sum
+		sourceColumn: plan_new_customers
+
+	column actual_new_customers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2c61337d-797d-4441-bf00-04a06aa764a6
+		summarizeBy: sum
+		sourceColumn: actual_new_customers
+
+	partition fact_performance = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\raw_simulated\fact_performance.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"branch_id", type text}, {"segment_id", type text}, {"product_id", type text}, {"plan_balance_bn", type number}, {"actual_balance_bn", type number}, {"plan_revenue_mn", type number}, {"actual_revenue_mn", type number}, {"plan_new_customers", Int64.Type}, {"actual_new_customers", Int64.Type}})
+				in
+				    Typed
+

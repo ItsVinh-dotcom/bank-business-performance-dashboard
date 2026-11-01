@@ -1,0 +1,25 @@
+table dim_segment
+	lineageTag: a213ed20-ff10-4e35-ba10-4751084e8fcc
+
+	column segment_id
+		dataType: string
+		lineageTag: 7b4a52a0-ea33-4434-b8c5-8782136d3d41
+		summarizeBy: none
+		sourceColumn: segment_id
+
+	column segment_name
+		dataType: string
+		lineageTag: c9df7f9b-806a-4213-8de4-0c76acedf40b
+		summarizeBy: none
+		sourceColumn: segment_name
+
+	partition dim_segment = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\reference\dim_segment.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"segment_id", type text}, {"segment_name", type text}})
+				in
+				    Typed
+

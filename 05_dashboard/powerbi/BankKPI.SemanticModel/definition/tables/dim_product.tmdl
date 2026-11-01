@@ -1,0 +1,31 @@
+table dim_product
+	lineageTag: c79a4eea-ffb9-4087-baea-b57cd36eb08a
+
+	column product_id
+		dataType: string
+		lineageTag: dbbcfb90-61f3-4b0e-8f86-109ff7e2e08d
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column product_name
+		dataType: string
+		lineageTag: 51b81219-edaf-460d-ac2f-4bb73f44e1a3
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column product_group
+		dataType: string
+		lineageTag: bca14ab9-e170-48b4-a4d1-3ecf39854080
+		summarizeBy: none
+		sourceColumn: product_group
+
+	partition dim_product = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\03_career\Project\bank-business-performance-dashboard\02_data\reference\dim_product.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"product_id", type text}, {"product_name", type text}, {"product_group", type text}})
+				in
+				    Typed
+
