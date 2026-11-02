@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "heading_m2",
   "position": {
-    "x": 676.22641509433959,
-    "y": 69.865229110512132,
+    "x": 676,
+    "y": 70,
     "z": 7000,
-    "height": 32.776280323450131,
-    "width": 587.3854447439353,
+    "height": 42,
+    "width": 588,
     "tabOrder": 6000
   },
   "visual": {
@@ -21,9 +21,9 @@
                   {
                     "value": "Tháng vượt hạn mức theo quý",
                     "textStyle": {
-                      "fontSize": "10.0pt",
-                      "color": "#A30E33",
-                      "fontWeight": "bold"
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#a30e33"
                     }
                   }
                 ]

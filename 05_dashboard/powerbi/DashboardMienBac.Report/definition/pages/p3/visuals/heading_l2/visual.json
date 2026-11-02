@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "heading_l2",
   "position": {
-    "x": 215.63342318059298,
-    "y": 69.865229110512132,
+    "x": 216,
+    "y": 70,
     "z": 6000,
-    "height": 32.776280323450131,
-    "width": 450.24258760107813,
+    "height": 42,
+    "width": 450,
     "tabOrder": 5000
   },
   "visual": {
@@ -21,9 +21,9 @@
                   {
                     "value": "Dư nợ không tài sản bảo đảm",
                     "textStyle": {
-                      "fontSize": "10.0pt",
-                      "color": "#A30E33",
-                      "fontWeight": "bold"
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#a30e33"
                     }
                   }
                 ]
