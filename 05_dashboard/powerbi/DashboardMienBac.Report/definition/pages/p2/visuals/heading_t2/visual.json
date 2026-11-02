@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "heading_t2",
   "position": {
-    "x": 215.63342318059298,
-    "y": 353.63881401617249,
+    "x": 215.19725557461433,
+    "y": 417.18181818181819,
     "z": 8000,
     "height": 39.676549865229106,
     "width": 640,
@@ -21,9 +21,9 @@
                   {
                     "value": "Chi tiết theo sản phẩm",
                     "textStyle": {
-                      "fontSize": "10.0pt",
-                      "color": "#A30E33",
-                      "fontWeight": "bold"
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#a30e33"
                     }
                   }
                 ]

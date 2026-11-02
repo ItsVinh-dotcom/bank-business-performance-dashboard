@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "heading_m1",
   "position": {
-    "x": 736,
-    "y": 70,
+    "x": 736.36363636363626,
+    "y": 82.801652892561975,
     "z": 7000,
-    "height": 22,
-    "width": 528,
+    "height": 41.818181818181813,
+    "width": 527.27272727272725,
     "tabOrder": 6000
   },
   "visual": {
@@ -21,9 +21,9 @@
                   {
                     "value": "Chênh lệch theo phân khúc",
                     "textStyle": {
-                      "fontSize": "10.0pt",
-                      "color": "#A30E33",
-                      "fontWeight": "bold"
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#a30e33"
                     }
                   }
                 ]
