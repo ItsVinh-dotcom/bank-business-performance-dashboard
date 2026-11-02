@@ -91,32 +91,30 @@ trong ảnh là dữ liệu giả lập, không đại diện cho ngân hàng th
 [đặc tả dashboard miền Bắc](05_dashboard/powerbi/dashboard_spec_north.md) để biết
 thêm về KPI và cách đọc báo cáo.
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>01 · Tình hình kinh doanh</strong><br>
-      <img src="05_dashboard/exports/screenshots/01-business-performance.png" alt="Dashboard tình hình kinh doanh miền Bắc với KPI dư nợ, doanh thu, xu hướng theo tháng và kết quả theo chi nhánh" width="100%">
-      <p><sub>Theo dõi KPI tổng quan, xu hướng thực tế so với kế hoạch và kết quả từng chi nhánh.</sub></p>
-    </td>
-    <td width="50%" valign="top">
-      <strong>02 · Kế hoạch và chênh lệch</strong><br>
-      <img src="05_dashboard/exports/screenshots/02-plan-and-variance.png" alt="Dashboard so sánh doanh thu kế hoạch và thực tế, phân tích chênh lệch theo chi nhánh và phân khúc" width="100%">
-      <p><sub>Xác định khoảng cách kế hoạch theo chi nhánh, phân khúc và sản phẩm.</sub></p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>03 · Tuân thủ và tiền thưởng</strong><br>
-      <img src="05_dashboard/exports/screenshots/03-compliance-and-incentives.png" alt="Dashboard theo dõi tỷ lệ dư nợ không tài sản bảo đảm, tháng vượt hạn mức và quỹ thưởng theo chi nhánh" width="100%">
-      <p><sub>Đặt kết quả KPI và quỹ thưởng trong bối cảnh giới hạn chính sách.</sub></p>
-    </td>
-    <td width="50%" valign="top">
-      <strong>04 · Chất lượng dữ liệu</strong><br>
-      <img src="05_dashboard/exports/screenshots/04-data-quality.png" alt="Dashboard chất lượng dữ liệu với số dòng thiếu, số dòng trùng khóa và bảng chi tiết kiểm tra" width="100%">
-      <p><sub>Hiển thị các bản ghi thiếu hoặc trùng cần được kiểm tra trước khi phân tích.</sub></p>
-    </td>
-  </tr>
-</table>
+### 01 · Tình hình kinh doanh
+
+Theo dõi KPI tổng quan, xu hướng thực tế so với kế hoạch và kết quả từng chi
+nhánh.
+
+<img src="05_dashboard/exports/screenshots/01-business-performance.png" alt="Dashboard tình hình kinh doanh miền Bắc với KPI dư nợ, doanh thu, xu hướng theo tháng và kết quả theo chi nhánh" width="100%">
+
+### 02 · Kế hoạch và chênh lệch
+
+Xác định khoảng cách kế hoạch theo chi nhánh, phân khúc và sản phẩm.
+
+<img src="05_dashboard/exports/screenshots/02-plan-and-variance.png" alt="Dashboard so sánh doanh thu kế hoạch và thực tế, phân tích chênh lệch theo chi nhánh và phân khúc" width="100%">
+
+### 03 · Tuân thủ và tiền thưởng
+
+Đặt kết quả KPI và quỹ thưởng trong bối cảnh giới hạn chính sách.
+
+<img src="05_dashboard/exports/screenshots/03-compliance-and-incentives.png" alt="Dashboard theo dõi tỷ lệ dư nợ không tài sản bảo đảm, tháng vượt hạn mức và quỹ thưởng theo chi nhánh" width="100%">
+
+### 04 · Chất lượng dữ liệu
+
+Hiển thị các bản ghi thiếu hoặc trùng cần được kiểm tra trước khi phân tích.
+
+<img src="05_dashboard/exports/screenshots/04-data-quality.png" alt="Dashboard chất lượng dữ liệu với số dòng thiếu, số dòng trùng khóa và bảng chi tiết kiểm tra" width="100%">
 
 ## Cấu trúc
 
